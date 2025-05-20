@@ -19,7 +19,7 @@ def get_user_data(users, user_id):
         if user["user_id"] == user_id:
             return user
         else:
-             print("User not found")
+             print("User not found")   
 
 def add_health_metric(users, user_id, new_metric):
     user = get_user_data(users, user_id)
