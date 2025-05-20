@@ -1,60 +1,25 @@
-// Sample list of users
-const users = [
-    {
-      userId: "user1",
-      medicalRecords: ["Blood test - Normal"],
-      currentHealthStatus: "Good",
-      appointmentHistory: ["2025-05-01: Dentist"]
-    },
-    {
-      userId: "user2",
-      medicalRecords: ["X-ray - Clear"],
-      currentHealthStatus: "Fair",
-      appointmentHistory: ["2025-04-20: General Checkup"]
-    }
-  ];
-  
-  // Function to find and return user data by userId
-  function getUserData(users, userId) {
-    for (let user of users) {
-      if (user.userId === userId) {
-        return user;
-      }
-    }
-    console.log("User not found");
-    return null;
-  }
-  
-  // Function to add new health metric to a user's medical records
-  function addHealthMetric(users, userId, newMetric) {
-    const user = getUserData(users, userId);
-    if (user) {
-      user.medicalRecords.push(newMetric);
-      console.log("New health metric added.");
-    }
-  }
-  
-  // Function to schedule a new appointment for a user
-  function scheduleAppointment(users, userId, newAppointment) {
-    const user = getUserData(users, userId);
-    if (user) {
-      user.appointmentHistory.push(newAppointment);
-      console.log(`Appointment '${newAppointment}' scheduled.`);
-    }
-  }
-  
-  // Example usage:
-  const userId = "user1";
-  
-  // View user data
-  console.log("User Data:", getUserData(users, userId));
-  
-  // Add a new health metric
-  addHealthMetric(users, userId, "Blood Pressure: 120/80");
-  
-  // Schedule a new appointment
-  scheduleAppointment(users, userId, "2025-06-15: Cardiologist");
-  
-  // View updated user data
-  console.log("Updated User Data:", getUserData(users, userId));
-  
+// Create a program for managing personal health data. Users should input their unique health identifier and be able to view their medical records, 
+// current health status, and appointment history. Additionally, 
+// users should have the option to record new health metrics and schedule appointments.
+const patients={
+  details:[{id:12,name:"Anna",records:"Blood pressure",status:"hospitalized",history:["12th April", "30th April","1st May"]},
+{id:10,name:"Jane",records:"Malaria",status:"Healed",history:["5th April", "21st April","7th May"]}],
+checkDetails:function(medicalId){
+  for(let i=0;i<this.details.length;i++){
+ if(medicalId==this.details[i].id){
+  console.log(`${this.details[i].name} had ${this.details[i].records} and status now is ${this.details[i].status}, had appointments on ${this.details[i].history}`)
+ }}
+},
+newMetrics:function(healthMetrics){
+  for(let i=0;i<this.details.length;i++){
+  this.details=this.details.splice(this.details.at(-1),0,healthMetrics); 
+}},
+appointment:function(date){
+  console.log(`Appointment scheduled on ${date}`);
+}
+
+}
+console.log(patients);
+patients.checkDetails(10);
+patients.newMetrics("Blood pressure");
+patients.appointment("21st May");
