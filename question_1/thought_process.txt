@@ -1,5 +1,0 @@
-Question1
-
-Health Tracking Application
-
- Create a program for managing personal health data. Users should input their unique health identifier and be able to view their medical records, current health status, and appointment history. Additionally, users should have the option to record new health metrics and schedule appointments.
